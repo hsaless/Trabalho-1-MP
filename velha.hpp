@@ -1,5 +1,3 @@
-int VerificaVelha( int velha[3][3] ); 
-int VerificaColuna( int velha[3][3] );
-int VerificaLinha ( int velha[3][3] );
- 
-
+int VerificaVelha(int velha[3][3]); 
+int verifica_coluna(int velha[3][3]);
+int verifica_linha(int velha[3][3]);
