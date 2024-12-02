@@ -86,9 +86,11 @@ TEST_CASE( "Testa para o jogo impossível por excesso de X", "[single-file]" ) {
 	                      { 1, 2, 1 },
 						  { 1, 2, 1 }
 					  };
-    REQUIRE( VerificaVelha(teste8) == 2 );
+    REQUIRE( VerificaVelha(teste8) == -2 );
 
 
 
 }
+
+
  

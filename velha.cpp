@@ -80,21 +80,47 @@ int verifica_diagonal(int velha[3][3]) {
 /**
  * \brief Verifica se o jogo está empatado.
  * \param velha Matriz representando o estado do jogo.
- * \return 1 se é empate, 0 se não há empate vencedor.
+ * \return 1 se é empate, 0 se não há empate.
  */
 
 int verifica_empate(int velha[3][3]) {
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
       if (velha[i][j] == 0) {
-        return 0;
+        return 0;  // Sem empate 
       }
     }
   }
-  return 1;
+  return 1;  // Com empate
+}
+
+/**
+ * \brief Verifica se o jogo é impossível.
+ * \param velha Matriz representando o estado do jogo.
+ * \return 1 se é impossível, 0 se o jogo é possível.
+ */
+
+int verifica_impossivel(int velha[3][3]) {
+  int cont_x = 0, cont_o = 0;
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      if (velha[i][j] == 1) {
+        cont_x++;
+      } else if (velha[i][j] == 2) {
+        cont_o++;
+      }
+    }
+  }
+  if (cont_x > cont_o + 1) {
+    return 1;  // Jogo impossível
+  }
+  return 0;  // Jogo possível
 }
 
 int VerificaVelha(int velha[3][3]) {
+  if (verifica_impossivel(velha)) {
+    return -2;
+  }
   int vencedor = verifica_coluna(velha);
   if (vencedor != 0) {
     return vencedor;
@@ -107,8 +133,7 @@ int VerificaVelha(int velha[3][3]) {
   if (vencedor != 0) {
     return vencedor;
   }
-  vencedor = verifica_empate(velha);
-  if (vencedor != 0) {
+  if (verifica_empate(velha) != 0) {
     return 0;
   }
   return -1;
