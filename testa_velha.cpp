@@ -113,4 +113,16 @@ TEST_CASE( "Testa para o jogo impossível por vitória de ambos", "[single-file]
 
 
 }
+
+
+TEST_CASE( "Testa para o jogo incompleto", "[single-file]" ) {
+	int teste11[3][3]= {  { 0, 0, 1 }, 
+	                      { 0, 2, 1 },
+						  { 0, 0, 0 }
+					  };
+    REQUIRE( VerificaVelha(teste11) == -1 );
+
+
+
+}
  
