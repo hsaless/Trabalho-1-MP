@@ -18,7 +18,7 @@
 /**
  * \brief Verifica se há vencedor na coluna.
  * \param velha Matriz representando o estado do jogo.
- * \return 1 se X venceu, 2 se O venceu, 0 se não há vencedor.
+ * \return 1 se X venceu, 2 se O venceu, 0 se não há vencedor, -2 se ambos ganharem (jogo impossível).
  */
 
 int verifica_coluna(int velha[3][3]) {
@@ -44,7 +44,7 @@ int verifica_coluna(int velha[3][3]) {
 /**
  * \brief Verifica se há vencedor na linha.
  * \param velha Matriz representando o estado do jogo.
- * \return 1 se X venceu, 2 se O venceu, 0 se não há vencedor.
+ * \return 1 se X venceu, 2 se O venceu, 0 se não há vencedor, -2 se ambos ganharem (jogo impossível).
  */
 
 int verifica_linha(int velha[3][3]) {
@@ -133,28 +133,22 @@ int verifica_impossivel(int velha[3][3]) {
 
 int VerificaVelha(int velha[3][3]) {
   if (verifica_impossivel(velha) == 1) {
-    return -2;
+    return -2;  // Retorna -2 se o jogo for impossível
   }
   int vencedor = verifica_coluna(velha);
   if (vencedor != 0) {
-    return vencedor;
+    return vencedor;  // Retorna 1 se X ganhar, 2 se O ganhar, ou -2 se ambos ganharem (jogo impossível)
   }
   vencedor = verifica_linha(velha);
   if (vencedor !=  0) {
-    return vencedor;
+    return vencedor;  // Retorna 1 se X ganhar, 2 se O ganhar, ou -2 se ambos ganharem (jogo impossível)
   }
   vencedor = verifica_diagonal(velha);
   if (vencedor != 0) {
-    return vencedor;
+    return vencedor;  // Retorna 1 se X ganhar ou 2 se O ganhar
   }
   if (verifica_empate(velha) == 1) {
-    return 0;
+    return 0;  // Retorna 0 se o jogo estiver emapatado
   }
-  return 10;
+  return -1;  // Retorna -1 se nada acima se aplicar, ou seja, o jogo está incompleto
 }
-
-
-
-
-
-
