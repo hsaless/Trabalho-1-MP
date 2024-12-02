@@ -131,6 +131,12 @@ int verifica_impossivel(int velha[3][3]) {
   return 0;  // Jogo possível
 }
 
+/**
+ * \brief Verifica o resultado do jogo.
+ * \param velha Matriz representando o estado do jogo.
+ * \return 2 se O ganhou, 1 se X ganhou, 0 se o jogo está empatado, -1 se o jogo está em um estado de resultado indeterminado, -2 se  0 se o jogo é impossível.
+ */
+
 int VerificaVelha(int velha[3][3]) {
   if (verifica_impossivel(velha) == 1) {
     return -2;  // Retorna -2 se o jogo for impossível
