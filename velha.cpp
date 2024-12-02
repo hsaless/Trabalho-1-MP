@@ -45,8 +45,7 @@ int verifica_linha(int velha[3][3]) {
     if (velha[i][0] == velha[i][1] && velha[i][1] == velha[i][2]) {
       if (velha[i][0] == 1) {
         return 1;  // X venceu
-      }
-      else if (velha[i][0] == 2) {
+      } else if (velha[i][0] == 2) {
         return 2;  // O venceu
       }      
     }
@@ -64,17 +63,15 @@ int verifica_diagonal(int velha[3][3]) {
   if (velha[0][0] == velha[1][1] && velha[1][1] == velha[2][2]) {
     if (velha[0][0] == 1) {
       return 1;  // X venceu
-    }
-    else if (velha[0][0] == 2) {
+    } else if (velha[0][0] == 2) {
       return 2;  // O venceu   
     }
   }
   if (velha[2][0] == velha[1][1] && velha[1][1] == velha[0][2]) {
     if (velha[0][2] == 1) {
       return 1;  // X venceu
-    }
-    else if (velha[0][2] == 2) {
-      return 2; // O venceu
+    } else if (velha[0][2] == 2) {
+      return 2;  // O venceu
     }
   }
   return 0;  // Sem vencedor
@@ -93,7 +90,7 @@ int VerificaVelha(int velha[3][3]) {
   if (vencedor != 0) {
     return vencedor;
   }
-  return 0;
+  return -1;
 }
 
 

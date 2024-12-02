@@ -70,4 +70,14 @@ TEST_CASE( "Testa vitória de O por diagonal", "[single-file]" ) {
 
 
 }
+
+TEST_CASE( "Testa para o jogo empatado", "[single-file]" ) {
+	int teste7[3][3]= {   { 2, 1, 2 }, 
+	                      { 1, 2, 1 },
+						  { 1, 2, 1 }
+					  };
+    REQUIRE( VerificaVelha(teste7) == 0 );
+
+
+}
  
