@@ -29,11 +29,29 @@ int VerificaColuna ( int velha[3][3] )
 	return 0;
 }
 
+int VerificaLinha( int velha[3][3] )
+{
+    for (int i = 0; i< 3; i++){
+        if (velha[i][0] == velha[i][1] && velha[i][1] == velha[i][2]){
+            if (velha[i][0] == 1){
+                return 1;
+            }
+            
+        }
+
+    }
+	return 0;
+}
 
 int VerificaVelha( int velha[3][3] )
 {
 	int vencedor = VerificaColuna( velha );
 	if( vencedor != 0 ){
+		return vencedor;
+	}
+
+	vencedor = VerificaLinha( velha );
+	if ( vencedor !=  0){
 		return vencedor;
 	}
 	return 0;
