@@ -60,4 +60,14 @@ TEST_CASE( "Testa vitória de X por diagonal", "[single-file]" ) {
 
 
 }
+
+TEST_CASE( "Testa vitória de O por diagonal", "[single-file]" ) {
+	int teste6[3][3]= {   { 1, 1, 2 }, 
+	                      { 1, 2, 1 },
+						  { 2, 2, 1 }
+					  };
+    REQUIRE( VerificaVelha(teste6) == 2 );
+
+
+}
  
