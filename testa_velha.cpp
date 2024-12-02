@@ -80,4 +80,14 @@ TEST_CASE( "Testa para o jogo empatado", "[single-file]" ) {
 
 
 }
+
+TEST_CASE( "Testa para o jogo impossível por excesso de X", "[single-file]" ) {
+	int teste8[3][3]= {   { 2, 1, 1 }, 
+	                      { 1, 2, 1 },
+						  { 1, 2, 1 }
+					  };
+    REQUIRE( VerificaVelha(teste8) == 2 );
+
+
+}
  
