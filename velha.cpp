@@ -111,7 +111,7 @@ int verifica_impossivel(int velha[3][3]) {
       }
     }
   }
-  if (cont_x > cont_o + 1) {
+  if (cont_x > cont_o + 1 || cont_o > cont_x + 1) {
     return 1;  // Jogo impossível
   }
   return 0;  // Jogo possível
