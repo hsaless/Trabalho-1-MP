@@ -11,7 +11,7 @@
   
 
 
-TEST_CASE( "Testa velha", "[single-file]" ) {
+TEST_CASE( "Testa vitória de X por colunas", "[single-file]" ) {
 	int teste1[3][3]= {   { 2, 0, 1 }, 
 	                      { 2, 0, 1 },
 						  { 0, 2, 1 }
@@ -20,4 +20,14 @@ TEST_CASE( "Testa velha", "[single-file]" ) {
 
 
 } 
+
+TEST_CASE( "Testa vitória de O por colunas", "[single-file]" ) {
+	int teste2[3][3]= {   { 2, 0, 1 }, 
+	                      { 2, 0, 1 },
+						  { 2, 0, 0 }
+					  };
+    REQUIRE( VerificaVelha(teste2) == 2 );
+
+
+}
  

@@ -20,9 +20,7 @@ int VerificaColuna ( int velha[3][3] )
 			if (velha[0][j] == 1){
 				return 1;
 			}
-			else if ( velha[0][j] == 2 ){
-				return 2;
-			}
+			
 		}
 	}
 	return 0;
