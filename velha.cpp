@@ -22,16 +22,23 @@
  */
 
 int verifica_coluna(int velha[3][3]) {
+  int cont = 0, vencedor = 0;
   for (int j = 0; j < 3; j++) {
     if (velha[0][j] == velha[1][j] && velha[1][j] == velha[2][j]) {
       if (velha[0][j] == 1) {
-        return 1;  // X venceu
+        cont++;
+        vencedor = 1;  // X venceu
       } else if (velha[0][j] == 2) {
-        return 2;  // O venceu
+        cont++;
+        vencedor = 2;  // O venceu
       }
     }
   }
-  return 0; // Sem vencedor
+  if (cont > 1) {
+    return -2;  // Jogo impossível
+  } else {
+    return vencedor;  //  Retorna 1 ou 2 se tiver vencedor ou 0 se não há
+  }
 }
 
 /**
@@ -41,16 +48,23 @@ int verifica_coluna(int velha[3][3]) {
  */
 
 int verifica_linha(int velha[3][3]) {
+  int cont = 0, vencedor = 0;
   for (int i = 0; i < 3; i++) {
     if (velha[i][0] == velha[i][1] && velha[i][1] == velha[i][2]) {
       if (velha[i][0] == 1) {
-        return 1;  // X venceu
+        cont++;
+        vencedor = 1;  // X venceu
       } else if (velha[i][0] == 2) {
-        return 2;  // O venceu
+        cont++;
+        vencedor = 2;  // O venceu
       }      
     }
   }
-  return 0;  // Sem vencedor
+  if (cont > 1) {
+    return -2;  // Jogo impossível
+  } else {
+    return vencedor;  //  Retorna 1 ou 2 se tiver vencedor ou 0 se não há
+  }
 }
 
 /**
@@ -112,13 +126,13 @@ int verifica_impossivel(int velha[3][3]) {
     }
   }
   if (cont_x > cont_o + 1 || cont_o > cont_x + 1) {
-    return 1;  // Jogo impossível
+    return 1;  // Jogo impossível 
   }
   return 0;  // Jogo possível
 }
 
 int VerificaVelha(int velha[3][3]) {
-  if (verifica_impossivel(velha)) {
+  if (verifica_impossivel(velha) == 1) {
     return -2;
   }
   int vencedor = verifica_coluna(velha);
@@ -133,7 +147,7 @@ int VerificaVelha(int velha[3][3]) {
   if (vencedor != 0) {
     return vencedor;
   }
-  if (verifica_empate(velha) != 0) {
+  if (verifica_empate(velha) == 1) {
     return 0;
   }
   return -1;

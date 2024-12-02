@@ -93,11 +93,22 @@ TEST_CASE( "Testa para o jogo impossível por excesso de X", "[single-file]" ) {
 }
 
 TEST_CASE( "Testa para o jogo impossível por excesso de O", "[single-file]" ) {
-	int teste8[3][3]= {   { 2, 1, 2 }, 
+	int teste9[3][3]= {   { 2, 1, 2 }, 
 	                      { 2, 2, 2 },
 						  { 1, 2, 1 }
 					  };
-    REQUIRE( VerificaVelha(teste8) == -2 );
+    REQUIRE( VerificaVelha(teste9) == -2 );
+
+
+
+}
+
+TEST_CASE( "Testa para o jogo impossível por vitória de ambos", "[single-file]" ) {
+	int teste10[3][3]= {  { 2, 1, 1 }, 
+	                      { 2, 2, 1 },
+						  { 2, 1, 1 }
+					  };
+    REQUIRE( VerificaVelha(teste10) == -2 );
 
 
 
