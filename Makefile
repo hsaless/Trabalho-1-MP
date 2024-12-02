@@ -16,7 +16,7 @@ test: testa_velha
 	 ./testa_velha
 	
 cpplint: testa_velha.cpp velha.cpp velha.hpp
-	 python cpplint.py --exclude=catch.hpp *.*
+	 python3 cpplint.py --exclude=catch.hpp *.*
 	
 gcov: testa_velha.cpp velha.cpp velha.hpp
 	 g++ -std=c++11 -Wall -fprofile-arcs -ftest-coverage -c velha.cpp
