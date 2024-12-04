@@ -132,24 +132,30 @@
         9:  131:  return 0;  // Jogo possível
         -:  132:}
         -:  133:
-       11:  134:int VerificaVelha(int velha[3][3]) {
-       11:  135:  if (verifica_impossivel(velha) == 1) {
-        2:  136:    return -2;  // Retorna -2 se o jogo for impossível
-        -:  137:  }
-        9:  138:  int vencedor = verifica_coluna(velha);
-        9:  139:  if (vencedor != 0) {
-        3:  140:    return vencedor;  // Retorna 1 se X ganhar, 2 se O ganhar, ou -2 se ambos ganharem (jogo impossível)
-        -:  141:  }
-        6:  142:  vencedor = verifica_linha(velha);
-        6:  143:  if (vencedor !=  0) {
-        2:  144:    return vencedor;  // Retorna 1 se X ganhar, 2 se O ganhar, ou -2 se ambos ganharem (jogo impossível)
-        -:  145:  }
-        4:  146:  vencedor = verifica_diagonal(velha);
-        4:  147:  if (vencedor != 0) {
-        2:  148:    return vencedor;  // Retorna 1 se X ganhar ou 2 se O ganhar
-        -:  149:  }
-        2:  150:  if (verifica_empate(velha) == 1) {
-        1:  151:    return 0;  // Retorna 0 se o jogo estiver emapatado
-        -:  152:  }
-        1:  153:  return -1;  // Retorna -1 se nada acima se aplicar, ou seja, o jogo está incompleto
-        -:  154:}
+        -:  134:/**
+        -:  135: * \brief Verifica o resultado do jogo.
+        -:  136: * \param velha Matriz representando o estado do jogo.
+        -:  137: * \return 2 se O ganhou, 1 se X ganhou, 0 se o jogo está empatado, -1 se o jogo está em um estado de resultado indeterminado, -2 se  0 se o jogo é impossível.
+        -:  138: */
+        -:  139:
+       11:  140:int VerificaVelha(int velha[3][3]) {
+       11:  141:  if (verifica_impossivel(velha) == 1) {
+        2:  142:    return -2;  // Retorna -2 se o jogo for impossível
+        -:  143:  }
+        9:  144:  int vencedor = verifica_coluna(velha);
+        9:  145:  if (vencedor != 0) {
+        3:  146:    return vencedor;  // Retorna 1 se X ganhar, 2 se O ganhar, ou -2 se ambos ganharem (jogo impossível)
+        -:  147:  }
+        6:  148:  vencedor = verifica_linha(velha);
+        6:  149:  if (vencedor !=  0) {
+        2:  150:    return vencedor;  // Retorna 1 se X ganhar, 2 se O ganhar, ou -2 se ambos ganharem (jogo impossível)
+        -:  151:  }
+        4:  152:  vencedor = verifica_diagonal(velha);
+        4:  153:  if (vencedor != 0) {
+        2:  154:    return vencedor;  // Retorna 1 se X ganhar ou 2 se O ganhar
+        -:  155:  }
+        2:  156:  if (verifica_empate(velha) == 1) {
+        1:  157:    return 0;  // Retorna 0 se o jogo estiver emapatado
+        -:  158:  }
+        1:  159:  return -1;  // Retorna -1 se nada acima se aplicar, ou seja, o jogo está incompleto
+        -:  160:}
